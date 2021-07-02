@@ -2,6 +2,8 @@ import React,{ useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 
 const QuoteForm = (props) => {
+    const { addQuotes } = props
+
     const [ name, setName ] = useState('')
     const [ body, setBody ] = useState('')
 
@@ -20,7 +22,11 @@ const QuoteForm = (props) => {
             name:name,
             body:body
         }
-        console.log(formData)
+        addQuotes(formData)
+
+        // reset form
+        setName('')
+        setBody('')
     }
 
     return(
@@ -28,9 +34,9 @@ const QuoteForm = (props) => {
             <h1>Add Quotes</h1>
             <form onSubmit={ handleSubmit }>
                 <label>Name</label> <br/>
-                <input type="text" name={ name } onChange={ handleChangeName }/> <br/>
+                <input type="text" value={ name } onChange={ handleChangeName }/> <br/>
                 <label>Body</label> <br/>
-                <textarea name={ body } onChange={ handleChangeBody }></textarea> <br/>
+                <textarea value={ body } onChange={ handleChangeBody }></textarea> <br/>
                 <input type="submit" value="save"/>
             </form>
         </div>

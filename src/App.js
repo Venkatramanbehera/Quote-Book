@@ -1,9 +1,11 @@
 import React from 'react'
+import QuotesContainer from './QuotesContainer'
 
 const App = (props) => {
   return (
     <div>
-      <h1>Hello React Love You</h1>
+      <h1>Quote Book</h1>
+      <QuotesContainer/>
     </div>
   )
 }

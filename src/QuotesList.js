@@ -2,7 +2,7 @@ import React from 'react'
 import QuotesItem from './QuotesItem'
 
 const QuotesList = ( props ) => {
-    const { quotes,handleRemove } = props
+    const { quotes,handleRemove,updateQuotes } = props
     return(
         <div>
             {
@@ -16,7 +16,11 @@ const QuotesList = ( props ) => {
                         <h1>My Quotes - { quotes.length }</h1>
                         {
                             quotes.map((ele) => {
-                                return <QuotesItem key={ ele.id } {...ele} handleRemove={ handleRemove }/>
+                                return <QuotesItem 
+                                            key={ ele.id } {...ele} 
+                                            handleRemove={ handleRemove } 
+                                            updateQuotes={ updateQuotes }
+                                        />
                             })
                         }
                     </div>
